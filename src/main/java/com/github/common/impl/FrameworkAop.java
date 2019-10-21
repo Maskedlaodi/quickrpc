@@ -17,7 +17,7 @@ public class FrameworkAop implements Framework {
 
     @Override
     public void export(Map<String, Object> serviceMap, int port) {
-
+        framework.export(serviceMap, port);
     }
 
     @Override
