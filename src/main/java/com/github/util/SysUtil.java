@@ -1,6 +1,8 @@
 package com.github.util;
 
 import com.github.ann.Service;
+import com.github.common.Framework;
+import com.github.common.impl.FrameworkAop;
 
 import java.io.File;
 import java.net.URL;
@@ -23,7 +25,7 @@ public class SysUtil {
     public static Map<String, Object>                   map = new ConcurrentHashMap<String, Object>();
     private static final ClassLoader                    classLoader = Thread.currentThread().getContextClassLoader();
 
-    public static void getService(String ... strs) {
+    public static Map getService(String ... strs) {
         List<String> fileNames = null;
         boolean childPackage = true;
         for (String str : strs) {
@@ -47,6 +49,7 @@ public class SysUtil {
                 getObjectByClassPath(fileName);
             }
         }
+        return map;
     }
 
     private static void getObjectByClassPath(String classPath) {
