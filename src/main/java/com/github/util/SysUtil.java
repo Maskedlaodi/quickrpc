@@ -7,10 +7,7 @@ import com.github.common.impl.FrameworkAop;
 import java.io.File;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -57,7 +54,9 @@ public class SysUtil {
             final Class<?> aClass = classLoader.loadClass(classPath);
             final Service annotation = aClass.getAnnotation(Service.class);
             if (null != annotation) {
-                map.put(classPath, aClass.newInstance());
+                final Class<?>[] interfaceClazzs = classLoader.loadClass(classPath).getInterfaces();
+                final String interfaceStr = SimilarityUtils.getSimilarestByClass(classPath, Arrays.asList(interfaceClazzs));
+                map.put(interfaceStr, aClass.newInstance());
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
