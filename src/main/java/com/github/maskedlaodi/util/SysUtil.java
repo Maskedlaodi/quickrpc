@@ -1,8 +1,7 @@
-package com.github.util;
+package com.github.maskedlaodi.util;
 
-import com.github.ann.Service;
-import com.github.common.Framework;
-import com.github.common.impl.FrameworkAop;
+import com.github.maskedlaodi.ann.Service;
+import com.github.maskedlaodi.common.Framework;
 
 import java.io.File;
 import java.net.URL;
@@ -12,11 +11,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-/**
- * @Desc:
- * @Author: xiaobobo
- * @Date: Created by 2019/10/21 9:10 AM
- */
 public class SysUtil {
 
     public static Map<String, Object>                   map = new ConcurrentHashMap<String, Object>();
@@ -69,11 +63,6 @@ public class SysUtil {
 
     /**
      * 从项目文件获取某包下所有类
-     *
-     * @param filePath  文件路径
-     * @param className 类名集合
-     * @param childPackage  是否遍历子包
-     * @return 类的完整名称
      */
     private static List<String> getClassNameByFile(String filePath, List<String> className, boolean childPackage) {
         List<String> myClassName = new ArrayList<String>();
@@ -99,10 +88,6 @@ public class SysUtil {
 
     /**
      * 从jar获取某包下所有类
-     *
-     * @param jarPath jar文件路径
-     * @param childPackage 是否遍历子包
-     * @return 类的完整名称
      */
     private static List<String> getClassNameByJar(String jarPath, boolean childPackage) {
         List<String> myClassName = new ArrayList<String>();
@@ -144,11 +129,6 @@ public class SysUtil {
 
     /**
      * 从所有jar中搜索该包，并获取该包下所有类
-     *
-     * @param urls URL集合
-     * @param packagePath 包路径
-     * @param childPackage 是否遍历子包
-     * @return 类的完整名称
      */
     private static List<String> getClassNameByJars(URL[] urls, String packagePath, boolean childPackage) {
         List<String> myClassName = new ArrayList<String>();

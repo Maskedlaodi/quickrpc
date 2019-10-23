@@ -1,8 +1,8 @@
-package com.github.common.impl;
+package com.github.maskedlaodi.common.impl;
 
 
-import com.github.common.Framework;
-import com.github.util.StringUtil;
+import com.github.maskedlaodi.common.Framework;
+import com.github.maskedlaodi.util.StringUtil;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -14,11 +14,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Map;
 
-/**
- * @Desc:
- * @Author: xiaobobo
- * @Date: Created by 2019/10/21 9:45 AM
- */
 public class FrameworkImpl implements Framework {
 
 

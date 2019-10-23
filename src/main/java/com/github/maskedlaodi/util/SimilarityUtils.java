@@ -1,12 +1,7 @@
-package com.github.util;
+package com.github.maskedlaodi.util;
 
 import java.util.*;
 
-/**
- * @Desc:
- * @Author: xiaobobo
- * @Date: Created by 2019/10/21 9:10 AM
- */
 public class SimilarityUtils {
     public static void main(String[] args) {
         //要比较的两个字符串
@@ -50,9 +45,6 @@ public class SimilarityUtils {
 
     /**
      * 相识度, 对比
-     *
-     * @param str1
-     * @param str2
      */
     public static float levenshtein(String str1,String str2) {
         //计算两个字符串的长度。

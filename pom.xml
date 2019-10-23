@@ -1,88 +1,177 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.github</groupId>
-	<artifactId>quickrpc</artifactId>
-	<packaging>jar</packaging>
-	<version>1.0-SNAPSHOT</version>
-	<!-- TODO project name  -->
-	<name>quickstart</name>
-	<description></description>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.github.Maskedlaodi</groupId>
+    <artifactId>quickrpc</artifactId>
+    <packaging>jar</packaging>
+    <version>1.1</version>
+    <!-- TODO project name  -->
+    <name>quickstart</name>
+    <description></description>
+    <url>https://github.com/Maskedlaodi/quickrpc</url>
 
-	<!-- TODO
-		<organization>
-		<name>company name</name>
-		<url>company url</url>
-		</organization>
-	-->
+    <!-- TODO
+        <organization>
+        <name>company name</name>
+        <url>company url</url>
+        </organization>
+    -->
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
 
-	<licenses>
-		<license>
-			<name>The Apache Software License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
-	<dependencies>
+    <scm>
+        <url>https://github.com/Maskedlaodi/quickrpc</url>
+        <connection>https://github.com/Maskedlaodi/quickrpc.git</connection>
+        <developerConnection>https://github.com/Maskedlaodi/quickrpc</developerConnection>
+    </scm>
 
-		<!-- LOGGING DEPENDENCIES - LOG4J -->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id> <!-- 等于上面Settings.xml中server的id值。-->
+            <name>oss Snapshots Repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>sonatype-nexus-staging</id> <!-- 等于上面Settings.xml中server的id值。-->
+            <name>oss Staging Repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.4.2</version>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.14</version>
-		</dependency>
+    <developers>
+        <developer>
+            <name>xiaobobo</name>
+            <email>820590183@qq.com</email>
+            <url>https://github.com/Maskedlaodi/quickrpc</url>
+        </developer>
+    </developers>
 
-		<!--  JETTY DEPENDENCIES FOR TESTING  -->
-	</dependencies>
+    <dependencies>
 
-	<build>
-		<resources>
-			<resource>
-				<filtering>false</filtering>
-				<directory>src/main/resources</directory>
-			</resource>
-			<resource>
-				<filtering>false</filtering>
-				<directory>src/main/java</directory>
-				<includes>
-					<include>**</include>
-				</includes>
-				<excludes>
-					<exclude>**/*.java</exclude>
-				</excludes>
-			</resource>
-		</resources>
-		<testResources>
-			<testResource>
-				<filtering>false</filtering>
-				<directory>src/test/java</directory>
-				<includes>
-					<include>**</include>
-				</includes>
-				<excludes>
-					<exclude>**/*.java</exclude>
-				</excludes>
-			</testResource>
-		</testResources>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>8</source>
-					<target>8</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+        <!-- LOGGING DEPENDENCIES - LOG4J -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.14</version>
+        </dependency>
+
+        <!--  JETTY DEPENDENCIES FOR TESTING  -->
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <filtering>false</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <filtering>false</filtering>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <filtering>false</filtering>
+                <directory>src/test/java</directory>
+                <includes>
+                    <include>**</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </testResource>
+        </testResources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>8</source>
+                        <target>8</target>
+                    </configuration>
+                </plugin>
+                <!-- 必须配置 source-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-source-plugin</artifactId>-->
+                    <!--<version>2.2.1</version>-->
+                    <!--<executions>-->
+                        <!--<execution>-->
+                            <!--<id>attach-sources</id>-->
+                            <!--<goals>-->
+                                <!--<goal>jar-no-fork</goal>-->
+                            <!--</goals>-->
+                        <!--</execution>-->
+                    <!--</executions>-->
+                <!--</plugin>-->
+                <!--&lt;!&ndash;  必须配置 javadoc&ndash;&gt;-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-javadoc-plugin</artifactId>-->
+                    <!--<version>2.10.3</version>-->
+                    <!--<executions>-->
+                        <!--<execution>-->
+                            <!--<id>attach-javadocs</id>-->
+                            <!--<goals>-->
+                                <!--<goal>jar</goal>-->
+                            <!--</goals>-->
+                        <!--</execution>-->
+                    <!--</executions>-->
+                <!--</plugin>-->
+                <!--&lt;!&ndash;  必须配置 sonatype&ndash;&gt;-->
+                <!--<plugin>-->
+                    <!--<groupId>org.sonatype.plugins</groupId>-->
+                    <!--<artifactId>nexus-staging-maven-plugin</artifactId>-->
+                    <!--<version>1.6.7</version>-->
+                    <!--<extensions>true</extensions>-->
+                    <!--<configuration>-->
+                        <!--<serverId>sonatype-nexus-staging</serverId> &lt;!&ndash; 等于上面Settings中server的id值。&ndash;&gt;-->
+                        <!--<nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
+                        <!--<autoReleaseAfterClose>true</autoReleaseAfterClose>-->
+                    <!--</configuration>-->
+                <!--</plugin>-->
+                <!--&lt;!&ndash; 必须配置  GPG&ndash;&gt;-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-gpg-plugin</artifactId>-->
+                    <!--<version>1.6</version>-->
+                    <!--<executions>-->
+                        <!--<execution>-->
+                            <!--<id>sign-artifacts</id>-->
+                            <!--<phase>verify</phase>-->
+                            <!--<goals>-->
+                                <!--<goal>sign</goal>-->
+                            <!--</goals>-->
+                        <!--</execution>-->
+                    <!--</executions>-->
+                <!--</plugin>-->
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>

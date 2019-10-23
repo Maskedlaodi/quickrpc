@@ -1,16 +1,10 @@
-package com.github.common.impl;
+package com.github.maskedlaodi.common.impl;
 
 
-import com.github.common.Framework;
+import com.github.maskedlaodi.common.Framework;
 
 import java.util.Map;
 
-/**
-/**
- * @Desc:
- * @Author: xiaobobo
- * @Date: Created by 2019/10/21 9:57 AM
- */
 public class FrameworkAop implements Framework {
 
     private FrameworkImpl                   framework = new FrameworkImpl();

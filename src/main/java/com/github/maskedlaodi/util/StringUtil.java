@@ -1,10 +1,7 @@
-package com.github.util;
+package com.github.maskedlaodi.util;
 
 import java.util.Optional;
 
-/**
- * @author xiaobobo
- */
 public class StringUtil {
 
     public static boolean isBank(String str) {
