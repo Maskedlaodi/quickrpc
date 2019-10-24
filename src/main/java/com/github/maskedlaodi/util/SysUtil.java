@@ -49,8 +49,9 @@ public class SysUtil {
             final Service annotation = aClass.getAnnotation(Service.class);
             if (null != annotation) {
                 final Class<?>[] interfaceClazzs = classLoader.loadClass(classPath).getInterfaces();
-                final String interfaceStr = SimilarityUtils.getSimilarestByClass(classPath, Arrays.asList(interfaceClazzs));
-                map.put(interfaceStr, aClass.newInstance());
+                //获取相似度最高的interface
+                final String[] interfaceStrs = SimilarityUtils.getSimilarestByClass(classPath, Arrays.asList(interfaceClazzs)).split(" ");
+                map.put(interfaceStrs[interfaceStrs.length - 1], aClass.newInstance());
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

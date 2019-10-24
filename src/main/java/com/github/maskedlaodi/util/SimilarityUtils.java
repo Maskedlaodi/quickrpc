@@ -1,20 +1,19 @@
 package com.github.maskedlaodi.util;
 
+import com.github.maskedlaodi.common.impl.FrameworkAop;
+
 import java.util.*;
 
 public class SimilarityUtils {
     public static void main(String[] args) {
-        //要比较的两个字符串
-//        String str1 = "com.xr.rpc.HelloService";
-//        String str2 = "java.io.Serializable";
-//        final float levenshtein = levenshtein(str1.toLowerCase(), str2.toLowerCase());
-//        System.out.println("levenshtein = " + levenshtein);
+        FrameworkAop frameworkAop = new FrameworkAop();
 
-        List<Float> list = Arrays.asList(12.2f);
-
-        list.stream().sorted().count();
-        final Optional<Float> max = list.stream().max((e, f) -> (int) (e - f));
-        System.out.println("max = " + max.get());
+        final Class<?>[] interfaces = frameworkAop.getClass().getInterfaces();
+        for (Class<?> anInterface : interfaces) {
+            final String[] split = anInterface.toString().split(" ");
+            final String str = split[split.length - 1];
+            System.out.println("str = " + str);
+        }
     }
 
     public static String getSimilarestByClass(String pointStr, List<Class> strs) {
@@ -73,9 +72,9 @@ public class SimilarityUtils {
                         dif[i - 1][j] + 1);
             }
         }
-        System.out.println("字符串\""+str1+"\"与\""+str2+"\"的比较");
+//        System.out.println("字符串\""+str1+"\"与\""+str2+"\"的比较");
         //取数组右下角的值，同样不同位置代表不同字符串的比较
-        System.out.println("差异步骤："+dif[len1][len2]);
+//        System.out.println("差异步骤："+dif[len1][len2]);
         //计算相似度
         return  1 - (float) dif[len1][len2] / Math.max(str1.length(), str2.length());
     }
