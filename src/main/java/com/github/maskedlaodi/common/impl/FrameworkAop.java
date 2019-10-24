@@ -25,7 +25,7 @@ public class FrameworkAop implements Framework {
             return framework.refer(interfaceClass, host, port);
         } finally {
             final long end = System.currentTimeMillis();
-            logger.info(">>>>>>>>>>> {} spend time: {} <<<<<<<<<<<<<", interfaceClass.toString(), (end - begin));
+            logger.info("\n>>>>>>>>>>> {} spend time: {} <<<<<<<<<<<<<", interfaceClass.toString(), (end - begin));
         }
     }
 }

@@ -3,6 +3,8 @@ package com.github.maskedlaodi.common.impl;
 
 import com.github.maskedlaodi.common.Framework;
 import com.github.maskedlaodi.util.StringUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -15,6 +17,8 @@ import java.net.Socket;
 import java.util.Map;
 
 public class FrameworkImpl implements Framework {
+
+    private static Logger                      logger = LoggerFactory.getLogger(FrameworkImpl.class);
 
 
     @Override
@@ -30,7 +34,7 @@ public class FrameworkImpl implements Framework {
             e.printStackTrace();
         }
         for(;;) {
-            System.out.println("========== 调用服务 ==============");
+            logger.info("\n========== 调用服务 ==============");
             try {
                 final Socket socket = server.accept();
                 new Thread(new Runnable() {
@@ -41,9 +45,7 @@ public class FrameworkImpl implements Framework {
                                 ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
                                 try {
                                     String className = (String) input.readObject();
-                                    System.out.println("className = " + className);
                                     String methodName = input.readUTF();
-                                    System.out.println("methodName = " + methodName);
                                     Class<?>[] parameterTypes = (Class<?>[])input.readObject();
                                     Object[] arguments = (Object[])input.readObject();
 
@@ -86,7 +88,7 @@ public class FrameworkImpl implements Framework {
             throw new IllegalArgumentException("Host == null!");
         if (port <= 0 || port > 65535)
             throw new IllegalArgumentException("Invalid port " + port);
-        System.out.println("Get remote service " + interfaceClass.getName() + " from server " + host + ":" + port);
+        logger.info("Get remote service " + interfaceClass.getName() + " from server " + host + ":" + port);
         return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class<?>[] {interfaceClass}, new InvocationHandler() {
             public Object invoke(Object proxy, Method method, Object[] arguments) throws Throwable {
                 Socket socket = new Socket(host, port);
