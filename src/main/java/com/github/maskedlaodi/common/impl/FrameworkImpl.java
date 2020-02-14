@@ -88,7 +88,7 @@ public class FrameworkImpl implements Framework {
             throw new IllegalArgumentException("Host == null!");
         if (port <= 0 || port > 65535)
             throw new IllegalArgumentException("Invalid port " + port);
-        logger.info("Get remote service " + interfaceClass.getName() + " from server " + host + ":" + port);
+        logger.info("\nGet remote service " + interfaceClass.getName() + " from server " + host + ":" + port);
         return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class<?>[] {interfaceClass}, new InvocationHandler() {
             public Object invoke(Object proxy, Method method, Object[] arguments) throws Throwable {
                 Socket socket = new Socket(host, port);
